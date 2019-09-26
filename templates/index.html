@@ -1,4 +1,20 @@
-<BODY>
-    <h1> Cash Flow </h1>
-    <p>hellow </p>
-</BODY>
+{% extends "base.html" %}
+
+{% block title %} 
+    <title>Welcome - Login</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Log in</h1>
+    <form> 
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }} {{ form.username(size=32) }}
+        </p> 
+        <p>
+            {{ form.password.label }} {{ form.password(size = 32) }}
+        </p>
+        <p>{{ form.rememberMe() }} {{ form.rememberMe.label }}</p>
+        <p>{{ form.submit() }}</p> 
+    </form>
+{% endblock %}
