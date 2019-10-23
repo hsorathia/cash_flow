@@ -1,3 +1,6 @@
+from wtforms.validators import DataRequired
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
+from flask_wtf import FlaskForm
 from flask import Flask, render_template, flash, request, url_for, redirect, session
 from wtforms import Form, BooleanField, StringField, PasswordField, validators
 #from passlib.hash import sha256_crypt
@@ -24,4 +27,14 @@ class signUp (Form):
         'I accept the Terms of Service and Privacy Notice (updated)',
         [validators.Required()])
 
+
 # Resource Referenced: https://pythonprogramming.net/flask-user-registration-form-tutorial/
+
+# from config import Config
+
+
+class loginForm(FlaskForm):
+    username = StringField('Username:', validators=[DataRequired()])
+    password = PasswordField('Password:', validators=[DataRequired()])
+    rememberMe = BooleanField('Remember Me')
+    submit = SubmitField('Login')

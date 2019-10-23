@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block title %}
+<title>Your Credit Card</title>
+{% endblock %} {% block body %} {% if valid %}
+<h1>Here's your ideal credit card!</h1>
+{% else %}
+<h2>
+  If you want to see your ideal credit card, please enter your information here!
+</h2>
+{% endif %}{% endblock %}
