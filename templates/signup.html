@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %}
+<title>CashFlow - Sign Up</title>
+{% endblock %} {% block body %}
+<h1>Log in</h1>
+<form>
+  <p>{{ form.username.label }} {{ form.username(size = 32) }}</p>
+  <p>{{ form.email.label }} {{ form.email(size = 32) }}</p>
+  <p>{{ form.password.label }} {{ form.password(size = 32) }}</p>
+  <p>{{ form.confirm.label }} {{form.confirm(size = 32) }}</p>
+  <p>{{ form.accept_tos() }} {{ form.accept_tos.label }}</p>
+</form>
+{% endblock %}
