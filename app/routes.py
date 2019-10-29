@@ -4,8 +4,15 @@ from app import app
 
 from app.forms import loginForm
 from app.forms import signUp
-
-
+import os
+image_folder = os.path.join('static','image')
+app.config['UPLOAD_FOLDER'] = image_folder
+@app.route('/')
+def home():
+    filename_logo1 = os.path.join(app.config['UPLOAD_FOLDER'],'logo1.jpg')
+    #filename_logo2 = os.path.join(app.config['UPLOAD_FOLDER'],'logo2.jpg')
+    #filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'],'logo3.png')
+    return render_template('home.html',logo1 = filename_logo1 )
 @app.route('/')
 @app.route('/index')
 def index():
