@@ -28,7 +28,8 @@ def login():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def register():
-    form = signUp
+    form = signUp()
+    
 
 
 @app.route('/output')
