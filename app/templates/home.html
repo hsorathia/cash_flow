@@ -4,19 +4,20 @@
     <meta charset="utf-8">
     <title> CashFlow | Welcome</title>
     <meta name="viewport" content="width = device width">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
-</head> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
 <body>
     <header>
         <div class="container">
             <div id="branding">
-                <h1><span class = "highlight">Cash</span> Flow</h1>
+                <h1><span class="highlight">Cash</span> Flow</h1>
             </div>
             <nav>
                 <ul>
-               <li class ="current"> <a href="{{ url_for('index') }}">Home</a></li>
-               <li> <a href="{{ url_for('Login') }}">Login</a></li>
-            </ul>
+                    <li class="current"> <a href="{{ url_for('home') }}">Home</a></li>
+                    <li> <a href="{{ url_for('login') }}">Login</a></li>
+                </ul>
 
             </nav>
         </div>
@@ -35,7 +36,7 @@
 
         <div class="container">
             <form>
-            <button type="menu" class="button_1">Get Started</button>
+                <button type="menu" class="button_1">Get Started</button>
             </form>
         </div>
     </section>
@@ -67,6 +68,6 @@
     </footer>
 
 
-    </body>
+</body>
 
 </html>
