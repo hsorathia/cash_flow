@@ -1,70 +1,71 @@
 {% extends "base.html" %}
 {% block title %}
-    <meta charset="utf-8">
-    <title> CashFlow | Welcome</title>
-    <meta name="viewport" content="width = device width">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<meta charset="utf-8">
+<title> CashFlow | Welcome</title>
+<meta name="viewport" content="width = device width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 
+
+{% block header %}
+<div class="container">
+    <div id="branding">
+        <h1><span class="highlight">Cash</span> Flow</h1>
+    </div>
+    <nav>
+        <ul>
+            <li class="current"> <a href="{{ url_for('home') }}">Home</a></li>
+            <li> <a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('output') }}">The ideal credit card</a></li>
+        </ul>
+
+    </nav>
+</div>
+{% endblock %}
 {% block body %}
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Cash</span> Flow</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"> <a href="{{ url_for('home') }}">Home</a></li>
-                    <li> <a href="{{ url_for('login') }}">Login</a></li>
-                </ul>
+<section id="showcase">
+    <div class="container">
+        <h1>Where You Save Money</h1>
+        <p>Cash Back Reward is a tool for you to earn money for what you buy every day. Many credit cards offer flat
+            cash back for all purchases, while others will offer higher rate on rotating categories like dining,
+            shopping, or gas. If you are still debating which is best, CashFlow will help you to find a card that
+            aligns your spending habits. </p>
+    </div>
+</section>
+<section id="button1">
 
-            </nav>
-        </div>
-    </header>
+    <div class="container">
+        <form>
+            <button type="menu" class="button_1">Get Started</button>
+        </form>
+    </div>
+</section>
 
-    <section id="showcase">
-        <div class="container">
-            <h1>Where You Save Money</h1>
-            <p>Cash Back Reward is a tool for you to earn money for what you buy every day. Many credit cards offer flat
-                cash back for all purchases, while others will offer higher rate on rotating categories like dining,
-                shopping, or gas. If you are still debating which is best, CashFlow will help you to find a card that
-                aligns your spending habits. </p>
+<section id="boxes">
+    <div class="container">
+        <div class="box">
+            <img src="{{logo1}}">
+            <h2>Chase Freedom Unlimited</h2>
+            <p>$150 BONUSAfter you spend $500 on purchases in your first 3 months from account opening.*</p>
         </div>
-    </section>
-    <section id="button1">
-
-        <div class="container">
-            <form>
-                <button type="menu" class="button_1">Get Started</button>
-            </form>
+        <div class="box">
+            <img src="{{logo2}}">
+            <h3>Bank of America® Cash Rewards credit card</h3>
+            <p>$200 cash rewards bonus after making at least $1,000 in purchases
+                in the first 90 days of your account opening — plus now choose how you earn rewards.</p>
         </div>
-    </section>
-
-    <section id="boxes">
-        <div class="container">
-            <div class="box">
-                <img src="{{logo1}}">
-                <h2>Chase Freedom Unlimited</h2>
-                <p>$150 BONUSAfter you spend $500 on purchases in your first 3 months from account opening.*</p>
-            </div>
-            <div class="box">
-                <img src="{{logo2}}">
-                <h3>Bank of America® Cash Rewards credit card</h3>
-                <p>$200 cash rewards bonus after making at least $1,000 in purchases
-                    in the first 90 days of your account opening — plus now choose how you earn rewards.</p>
-            </div>
-            <div class="box">
-                <img src="{{logo3}}">
-                <h4>Citi Double Cash Card</h4>
-                <p>EARN 2% CASH BACK ON PURCHASES:
-                    1% WHEN YOU BUY AND 1% AS YOU PAY
-                    No categories, caps or annual fee.</p>
-            </div>
+        <div class="box">
+            <img src="{{logo3}}">
+            <h4>Citi Double Cash Card</h4>
+            <p>EARN 2% CASH BACK ON PURCHASES:
+                1% WHEN YOU BUY AND 1% AS YOU PAY
+                No categories, caps or annual fee.</p>
         </div>
-    </section>
-    <footer>
-        <p>Cash Flow , Copyright &copy; 2019</p>
-    </footer>
+    </div>
+</section>
+<footer>
+    <p>Cash Flow , Copyright &copy; 2019</p>
+</footer>
 
 
 {% endblock %}
