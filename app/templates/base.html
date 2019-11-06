@@ -10,6 +10,17 @@
 
 <body>
   {% block body %}{% endblock %}
+
+
+
+  {% with messages = get_flashed_messages() %}
+
+  {% if messages %}
+  <p>{{ messages }}</p>
+  {% endif %}
+
+  {% endwith %}
+
 </body>
 
 </html>
