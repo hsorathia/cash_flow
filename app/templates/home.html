@@ -1,13 +1,12 @@
-<html>
-
-<head>
+{% extends "base.html" %}
+{% block title %}
     <meta charset="utf-8">
     <title> CashFlow | Welcome</title>
     <meta name="viewport" content="width = device width">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% endblock %}
 
-<body>
+{% block body %}
     <header>
         <div class="container">
             <div id="branding">
@@ -68,6 +67,4 @@
     </footer>
 
 
-</body>
-
-</html>
+{% endblock %}
