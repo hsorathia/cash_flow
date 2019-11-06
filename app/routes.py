@@ -20,16 +20,17 @@ def home():
 def login():
     form = loginForm()
     if form.validate_on_submit():
+        # flash('Hello you logged in')
         flash('Login requested for user {}, rememberMe={}'.format(
             form.username.data, form.rememberMe.data))
-        return redirect(url_for('home'))
+        # return redirect(url_for('home'))
     return render_template('login.html',  title='Sign In', form=form)
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def register():
     form = signUp()
-    
+
 
 
 @app.route('/output')

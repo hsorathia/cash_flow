@@ -22,5 +22,13 @@
 <div class="login-help">
   <p>Don't have an account? <a href="#">Click here to Register </a>.</p>
 </div>
+
+{% with messages = get_flashed_messages() %}
+
+{% if messages %}
+<p>{{ messages }}</p>
+{% endif %}
+
+{% endwith %}
 {% endblock %}
 
