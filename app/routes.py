@@ -1,9 +1,8 @@
 from flask import Flask, render_template, flash, redirect, url_for
-
 from app import app
-
-from app.forms import loginForm
-from app.forms import signUp
+from app.forms import loginForm, signUp
+from app.models import User
+from flask_login import current_user, login_user
 import os
 image_folder = os.path.join('static', 'image')
 app.config['UPLOAD_FOLDER'] = image_folder
@@ -20,16 +19,39 @@ def home():
 def login():
     form = loginForm()
     if form.validate_on_submit():
-        flash('Login requested for user {}, rememberMe={}'.format(
-            form.username.data, form.rememberMe.data))
-        return redirect(url_for('home'))
+        userName = User.query.filter_by(username = form.username.data).first()
+       
+        if userName is None or not userName.check_password(form.password.data):
+            flash('invalid username or password')
+        else:
+            flash('you have succesfully logged in')
+            login_user(user, remember=form.form.remember_me.data)
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                next_page = url_for('home')
+            return redirect(url_for(next_page))
+
+        # flash('Hello you logged in')
+        # flash('Login requested for user {}, rememberMe={}'.format(
+        #     form.username.data, form.rememberMe.data))
+        
     return render_template('login.html',  title='Sign In', form=form)
 
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     form = signUp()
-    
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('You have been registered')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)
+
 
 
 @app.route('/output')
