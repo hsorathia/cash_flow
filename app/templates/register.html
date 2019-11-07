@@ -13,18 +13,13 @@
 <div class="signup">
   <h1>Cash Flow Registration</h1>
   <form method="post" action="">
+  {{form.hidden_tag()}}
     <p>{{ form.username.label }} {{ form.username(size = 32) }}</p>
     <p>{{ form.email.label }} {{ form.email(size = 32) }}</p>
     <p>{{ form.password.label }} {{ form.password(size = 32) }}</p>
-    <p>{{ form.confirm.label }} {{ form.confirm(size = 32) }}</p>
-    <p>{{ form.accept_tos() }} {{ form.accept_tos.label }}</p>
-    <p class="remember_me">
-      <label>
-        <input type="checkbox" name="remember_me" id="remember_me">
-        Remember me
-      </label>
-    </p>
-    <p class="submit"><input type="submit" name="commit" value="Sign Up"></p>
+    <p>{{ form.password2.label }} {{ form.password2(size = 32) }}</p>
+    <p class="remember_me">{{ form.rememberMe() }} {{ form.rememberMe.label }}</p>
+    <p class="submit">{{ form.submit() }}</p>
   </form>
 </div>
 {% endblock %}
