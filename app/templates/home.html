@@ -15,11 +15,16 @@
     <nav>
         <ul>
             <li class="current"> <a href="{{ url_for('home') }}">Home</a></li>
-            <li> <a href="{{ url_for('login') }}">Login</a></li>
-            <li><a href="{{ url_for('output') }}">The ideal credit card</a></li>
+            {% if current_user.is_anonymous %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% else %}
+            <li><a href="{{ url_for('input_page') }}">Input Page</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            
+            {% endif %}
+            
         </ul>
-
     </nav>
 </div>
 {% endblock %}
@@ -37,7 +42,7 @@
 
     <div class="container">
         <form>
-            <button type="menu" class="button_1">Get Started</button>
+            <p type="menu" class="button_1"><a href="{{ url_for('input_page') }}">Get Started</p>
         </form>
     </div>
 </section>

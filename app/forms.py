@@ -1,10 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, InputRequired
 from app.models import User
-
-
 import gc
+
+class HomeForm(FlaskForm):
+    submit = SubmitField('Get Started')
+
 
 
 class LoginForm(FlaskForm):
@@ -32,3 +34,22 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+class InputForm(FlaskForm):
+    # creditCardName = IntegerField('Enter your current credit card:', validators=[InputRequired()])
+    # onlineEstimate = IntegerField('Online Purchase Estimate: ', validators=[InputRequired()])
+    # travelEstimate = IntegerField('Travel Purchase Estimate: ', validators=[InputRequired()])
+    # autoEstimate = IntegerField('Auto Purchase Estimate: ', validators=[InputRequired()])
+    # cOnlinePercentage = IntegerField('Cash Back Percentage: ', validators=[InputRequired()])
+    # cTravelPercentage = IntegerField('Cash Back Percentage: ', validators=[InputRequired()])
+    # cAutoPercentage = IntegerField('Cash Back Percentage: ', validators=[InputRequired()])
+    creditCardName = StringField('Enter your current credit card:')
+    onlineEstimate = IntegerField('Online Purchase Estimate: ')
+    travelEstimate = IntegerField('Travel Purchase Estimate: ')
+    autoEstimate = IntegerField('Auto Purchase Estimate: ')
+    cOnlinePercentage = IntegerField('Cash Back Percentage: ')
+    cTravelPercentage = IntegerField('Cash Back Percentage: ')
+    cAutoPercentage = IntegerField('Cash Back Percentage: ')
+    submit = SubmitField('Submit')
+
+

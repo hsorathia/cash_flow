@@ -60,18 +60,19 @@ header a:hover{
     font-weight: bold;
 }
 .button_1 {
-    background: #e8491d;
-    border: 0;
-    padding-left: 20px;
+    /* background: #e8491d; */
+
+    text-align: center;
+    /* padding-left: 20px;
     padding-right: 20px;
     color: #ffffff;
     display: block;
       max-width: 300px;
-      margin: auto;
+      margin: auto; */
     }
 /*showcase*/
 #showcase h1{
-    background: url('C:\Users\DELL\Desktop\cash_flow\app\image\image\background.jpg') no repeat;
+    background: url('../image/background.jpg') no repeat;
     text-align: center;
     color: #2ccfcf;
 
