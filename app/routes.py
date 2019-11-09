@@ -1,16 +1,11 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app import db
-from app.forms import LoginForm
-from app.forms import RegistrationForm
-from app.models import User
-from flask_login import current_user, login_user
-from flask_login import logout_user
-from flask_login import login_required
-from flask import request
+from app.forms import LoginForm, RegistrationForm, InputForm, HomeForm
+from app.models import User, UserCards
+from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 import os
-
 
 
 image_folder = os.path.join('static', 'image')
@@ -18,10 +13,17 @@ app.config['UPLOAD_FOLDER'] = image_folder
 @app.route('/')
 @app.route('/home')
 def home():
+
     filename_logo1 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo1.jpg')
     filename_logo2 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo2.png')
     filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo3.png')
-    return render_template('home.html', logo1=filename_logo1, logo2=filename_logo2, logo3=filename_logo3)
+    form = HomeForm()
+    if form.validate_on_submit():
+        if current_user.is_authenticated:
+            return redirect(url_for('input_page'))
+        else:
+            return redirect(url_for('login'))
+    return render_template('home.html', form=form, logo1=filename_logo1, logo2=filename_logo2, logo3=filename_logo3)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -36,11 +38,11 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect(url_for('login'))
-        login_user(user, remember=form.remember_me.data)
+        login_user(user, remember=form.rememberMe.data)
         # return to page before user got asked to login
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('home')
+            next_page = url_for('input_page')
         return redirect(next_page)
     return render_template('login.html', title='Sign in', form=form)
 
@@ -50,11 +52,10 @@ def register():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
-    flash('this is working ! ! !')
     if form.validate_on_submit():
-        flash('wow this doesnt work')
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
+        db.create_all()
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
@@ -67,18 +68,31 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route('/input')
-def inputPage():
-    im_dead_lmao = False
 
-    return render_template('home.html')
+@app.route('/input_page', methods=['GET', 'POST'])
+def input_page():
+    form = InputForm()
+    flash(form.errors)
+    if form.validate_on_submit():
+        flash('didnt work man')
+        card = UserCards(author=current_user, cardName=form.creditCardName.data, onlineEstimate=form.onlineEstimate.data, cbOnlinePercentage=form.cOnlinePercentage.data, travelEstimate=form.travelEstimate.data, cbTravelPercentage=form.cTravelPercentage.data, autoEstimate=form.autoEstimate.data, cbAutoPercentage=form.cAutoPercentage.data)
+        db.create_all()
+        db.session.add(card)
+        db.session.commit()
+        flash('Congratulations! You have successfully inputted data')
+        return redirect(url_for('output'))
+    else:
+        flash('didnt work man2')
+    return render_template('input.html',  form=form)
+
 
 @app.route('/output')
 def output():
     # form = completeForm()
-    valid = False
-
-    return render_template('output.html', valid=valid)
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    usercards = current_user.usercards.all()
+    return render_template('output.html', usercards=usercards)
 
 
 if __name__ == "__main__":

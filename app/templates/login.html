@@ -8,6 +8,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style_login.css') }}">
 {% endblock %}
 
+{% block header %}
+<nav>
+  <a href="{{ url_for('home') }}">Home</a> |
+  <a href="{{ url_for('register') }}">Register</a>
+</nav>
+{% endblock %}
+
+
 {% block body %}
 <div class="login">
   <h1>Cash Flow Login</h1>
@@ -25,4 +33,3 @@
 
 
 {% endblock %}
-
