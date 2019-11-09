@@ -29,7 +29,7 @@ def home():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('input_page'))
 
     form = LoginForm()
     if form.validate_on_submit():
@@ -72,17 +72,17 @@ def logout():
 @app.route('/input_page', methods=['GET', 'POST'])
 def input_page():
     form = InputForm()
-    flash(form.errors)
+    # flash(form.errors) lets you know if something in the form failed.
     if form.validate_on_submit():
-        flash('didnt work man')
+        # flash('didnt work man')
         card = UserCards(author=current_user, cardName=form.creditCardName.data, onlineEstimate=form.onlineEstimate.data, cbOnlinePercentage=form.cOnlinePercentage.data, travelEstimate=form.travelEstimate.data, cbTravelPercentage=form.cTravelPercentage.data, autoEstimate=form.autoEstimate.data, cbAutoPercentage=form.cAutoPercentage.data)
         db.create_all()
         db.session.add(card)
         db.session.commit()
         flash('Congratulations! You have successfully inputted data')
         return redirect(url_for('output'))
-    else:
-        flash('didnt work man2')
+    # else:
+    #     flash('didnt work man2')
     return render_template('input.html',  form=form)
 
 
