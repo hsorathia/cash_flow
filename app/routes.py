@@ -10,6 +10,7 @@ import os
 
 image_folder = os.path.join('static', 'image')
 app.config['UPLOAD_FOLDER'] = image_folder
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -71,6 +72,8 @@ def logout():
 
 @app.route('/input_page', methods=['GET', 'POST'])
 def input_page():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
     form = InputForm()
     flash(form.errors)
     if form.validate_on_submit():
@@ -93,6 +96,13 @@ def output():
         return redirect(url_for('login'))
     usercards = current_user.usercards.all()
     return render_template('output.html', usercards=usercards)
+
+
+@app.route('/comparison')
+def comparison():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    return render_template('comparison.html')
 
 
 if __name__ == "__main__":
