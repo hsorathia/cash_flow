@@ -19,6 +19,8 @@
             <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
             {% else %}
+            <li><a href="{{ url_for('output') }}">Profile Page</a></li>
+            <li><a href="{{ url_for('comparison') }}">Comparison Page</a></li>
             <li><a href="{{ url_for('input_page') }}">Input Page</a></li>
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
             
