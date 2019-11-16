@@ -7,12 +7,20 @@ from app.forms import signUp
 import os
 image_folder = os.path.join('static','image')
 app.config['UPLOAD_FOLDER'] = image_folder
-@app.route('/')
+
+#pip install flask flask-wtf flask-sqlalchemy
+@app.route('/output')
+def output1():
+    return render_template('output1.html')
+
+@app.route('/home')
 def home():
+    
     filename_logo1 = os.path.join(app.config['UPLOAD_FOLDER'],'logo1.jpg')
-    #filename_logo2 = os.path.join(app.config['UPLOAD_FOLDER'],'logo2.jpg')
-    #filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'],'logo3.png')
-    return render_template('home.html',logo1 = filename_logo1 )
+    filename_logo2 = os.path.join(app.config['UPLOAD_FOLDER'],'logo2.jpg')
+    filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'],'logo3.jpg')
+    filename_background = os.path.join(app.config['UPLOAD_FOLDER'],'background.jpg')
+    return render_template('home.html',logo1 = filename_logo1, logo2=filename_logo2, logo3 = filename_logo3, background = filename_background)
 @app.route('/')
 @app.route('/index')
 def index():
