@@ -24,21 +24,21 @@ class User(UserMixin, db.Model):
 
 class UserCards(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    userID = db.Column(db.Numeric, db.ForeignKey('user.id'))
     # name of credit card
     cardName = db.Column(db.String, index=True)
     # online spend
-    onlineEstimate = db.Column(db.Integer, index=True)
+    onlineEstimate = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
     # points or pecent cashback online
-    cbOnlinePercentage = db.Column(db.Integer, index=True)
+    cbOnlinePercentage = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
     # travel spend
-    travelEstimate = db.Column(db.Integer, index=True)
+    travelEstimate = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
     # points or pecent cashback travel
-    cbTravelPercentage = db.Column(db.Integer, index=True)
+    cbTravelPercentage = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
     # auto spend
-    autoEstimate = db.Column(db.Integer, index=True)
+    autoEstimate = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
     # points or pecent cashback auto
-    cbAutoPercentage = db.Column(db.Integer, index=True)
+    cbAutoPercentage = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
 
     def __repr__(self):
         return f'Card: {self.cardName}'
@@ -48,9 +48,9 @@ class OurCards(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, index=True)
 
-    percentOnline = db.Column(db.Integer, index=True)
-    percentTravel = db.Column(db.Integer, index=True)
-    percentAuto = db.Column(db.Integer, index=True)
+    percentOnline = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
+    percentTravel = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
+    percentAuto = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
 
     def __repr__(self):
         return '<User {}>'.format(self.name)

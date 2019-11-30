@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DecimalField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, InputRequired
 from app.models import User
 import gc
@@ -37,12 +37,12 @@ class RegistrationForm(FlaskForm):
 
 class InputForm(FlaskForm):
     creditCardName = StringField('Enter your current credit card:', validators=[InputRequired()])
-    onlineEstimate = IntegerField('Online Purchase Estimate: ', validators=[InputRequired()])
-    travelEstimate = IntegerField('Travel Purchase Estimate: ', validators=[InputRequired()])
-    autoEstimate = IntegerField('Auto Purchase Estimate: ', validators=[InputRequired()])
-    cOnlinePercentage = IntegerField('Cash Back Percentage: ', validators=[InputRequired()])
-    cTravelPercentage = IntegerField('Cash Back Percentage: ', validators=[InputRequired()])
-    cAutoPercentage = IntegerField('Cash Back Percentage: ', validators=[InputRequired()])
+    onlineEstimate = DecimalField('Online Purchase Estimate: ', validators=[InputRequired()])
+    travelEstimate = DecimalField('Travel Purchase Estimate: ', validators=[InputRequired()])
+    autoEstimate = DecimalField('Auto Purchase Estimate: ', validators=[InputRequired()])
+    cOnlinePercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
+    cTravelPercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
+    cAutoPercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
     # creditCardName = StringField('Enter your current credit card:')
     # onlineEstimate = IntegerField('Online Purchase Estimate: ')
     # travelEstimate = IntegerField('Travel Purchase Estimate: ')

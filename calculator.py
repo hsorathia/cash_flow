@@ -35,6 +35,9 @@ def main():
     on= online(100,1, .01)
     t= total(au,tr,on)
     print(t)
+    print(au)
+    print(tr)
+    print(on)
 
-
+main()
 
