@@ -19,5 +19,10 @@
 
 
 {% block body %}
-<h1>there's nothing here x_x</h1>
+<h1>Which Cards are better:</h1>
+<ul>
+    {% for card in bestCard %}
+    <li>{{card}}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

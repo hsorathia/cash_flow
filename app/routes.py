@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app import db
 from app.forms import LoginForm, RegistrationForm, InputForm, HomeForm
-from app.models import User, UserCards
+from app.models import User, UserCards, OurCards
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 import os
@@ -102,7 +102,21 @@ def output():
 def comparison():
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
-    return render_template('comparison.html')
+    usercards = current_user.usercards.all()
+    if usercards is None:
+        return redirect(url_for('input'))
+    appcards = OurCards.query.all()
+    bestCard = []
+    for card in usercards:
+        for ourcard in appcards:
+            normSpend = card.onlineEstimate*card.cbOnlinePercentage + card.travelEstimate*card.cbTravelPercentage + card.autoEstimate*card.cbAutoPercentage
+            ourSpend = card.onlineEstimate*ourcard.percentOnline + card.travelEstimate*ourcard.percentTravel + card.autoEstimate*ourcard.percentAuto
+            if normSpend >= ourSpend:
+                apstr = "better card: " + card.cardName + " cb: " + normSpend + " ocb: " + ourSpend
+            else:
+                apstr = "better card: " + ourcard.name + " cb : " + normSpend + " ocb: " + ourSpend
+            bestCard.append(apstr)
+    return render_template('comparison.html', bestCard=bestCard)
 
 
 if __name__ == "__main__":
