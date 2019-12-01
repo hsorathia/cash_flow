@@ -106,17 +106,20 @@ def comparison():
     if usercards is None:
         return redirect(url_for('input'))
     appcards = OurCards.query.all()
-    bestCard = []
+    finalCards = {}
     for card in usercards:
+        # bestCard = {}
+        finalCards[card] = {}
         for ourcard in appcards:
             normSpend = card.onlineEstimate*card.cbOnlinePercentage + card.travelEstimate*card.cbTravelPercentage + card.autoEstimate*card.cbAutoPercentage
             ourSpend = card.onlineEstimate*ourcard.percentOnline + card.travelEstimate*ourcard.percentTravel + card.autoEstimate*ourcard.percentAuto
             if normSpend >= ourSpend:
-                apstr = "better card: " + card.cardName + " cb: " + normSpend + " ocb: " + ourSpend
+                apstr = "better card: " + card.cardName + " cb: " + str(normSpend) + " ocb: " + str(ourSpend)
             else:
-                apstr = "better card: " + ourcard.name + " cb : " + normSpend + " ocb: " + ourSpend
-            bestCard.append(apstr)
-    return render_template('comparison.html', bestCard=bestCard)
+                apstr = "better card: " + ourcard.name + " cb : " + str(normSpend) + " ocb: " + str(ourSpend)
+            finalCards[card][ourcard] = apstr
+        
+    return render_template('comparison.html', finalCards=finalCards)
 
 
 if __name__ == "__main__":
