@@ -20,9 +20,12 @@
 
 {% block body %}
 <h1>Which Cards are better:</h1>
+{% for key,value in finalCards.items() %}
 <ul>
-    {% for card in bestCard %}
-    <li>{{card}}</li>
+    <p>{{key}}</p>
+    {% for nestKey, nestValue in value.items() %}
+    <li>{{nestValue}}</li>
     {% endfor %}
 </ul>
+{% endfor %}
 {% endblock %}
