@@ -14,7 +14,8 @@ app.config['UPLOAD_FOLDER'] = image_folder
 @app.route('/')
 @app.route('/home')
 def home():
-
+    if current_user.is_authenticated:
+        flash(current_user.username)
     filename_logo1 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo1.jpg')
     filename_logo2 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo2.png')
     filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo3.png')
@@ -96,7 +97,20 @@ def output():
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     usercards = current_user.usercards.all()
+
     return render_template('output.html', usercards=usercards)
+
+@app.route('/output/delete/<int:id>', methods=['POST'])
+def delete(id):
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    card = UserCards.query.filter_by(id=id).all()
+    db.create_all()    
+    for c in card:    
+        db.session.delete(c)
+        db.session.commit()
+    return redirect(url_for('output'))
+
 
 
 @app.route('/comparison')
@@ -128,14 +142,18 @@ def admin():
         return redirect(url_for('login'))
     # if not admin:
     #     return redirect(url_for('output'))
-    form = AdminForm()
-    if form.validate_on_submit():
-        # flash('didnt work man')
-        card = OurCards(name=form.name.data,  percentOnline=form.percentOnline.data, percentTravel=form.percentTravel.data, percentAuto=form.percentAuto.data)
-        db.create_all()
-        db.session.add(card)
-        db.session.commit()
-        return redirect(url_for('admin'))
+    if current_user.username == 'bibah':
+        form = AdminForm()
+        if form.validate_on_submit():
+            # flash('didnt work man')
+            card = OurCards(name=form.name.data,  percentOnline=form.percentOnline.data, percentTravel=form.percentTravel.data, percentAuto=form.percentAuto.data)
+            db.create_all()
+            db.session.add(card)
+            db.session.commit()
+            return redirect(url_for('admin'))
+    else:
+        flash("did not work")
+        return redirect(url_for('home'))
     return render_template('admin.html', form=form)
 
 

@@ -19,13 +19,16 @@
             <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
             {% else %}
+            {% if current_user.username == 'bibah' %}
+            <li><a href="{{ url_for('admin') }}">Admin Page</a></li>
+            {% endif %}
             <li><a href="{{ url_for('output') }}">Profile Page</a></li>
             <li><a href="{{ url_for('comparison') }}">Comparison Page</a></li>
             <li><a href="{{ url_for('input_page') }}">Input Page</a></li>
             <li><a href="{{ url_for('logout') }}">Logout</a></li>
-            
             {% endif %}
-            
+
+
         </ul>
     </nav>
 </div>
