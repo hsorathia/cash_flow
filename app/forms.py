@@ -22,7 +22,6 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password:', validators=[DataRequired()])
     password2 = PasswordField('Repeat Password:', validators=[
                               DataRequired(), EqualTo('password')])
-    rememberMe = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
     def validate_username(self, username):
@@ -43,13 +42,16 @@ class InputForm(FlaskForm):
     cOnlinePercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
     cTravelPercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
     cAutoPercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
-    # creditCardName = StringField('Enter your current credit card:')
-    # onlineEstimate = IntegerField('Online Purchase Estimate: ')
-    # travelEstimate = IntegerField('Travel Purchase Estimate: ')
-    # autoEstimate = IntegerField('Auto Purchase Estimate: ')
-    # cOnlinePercentage = IntegerField('Cash Back Percentage: ')
-    # cTravelPercentage = IntegerField('Cash Back Percentage: ')
-    # cAutoPercentage = IntegerField('Cash Back Percentage: ')
     submit = SubmitField('Submit')
 
 
+class AdminForm(FlaskForm):
+    name = StringField('Enter your current credit card:', validators=[InputRequired()])
+    percentOnline = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
+    percentTravel = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
+    percentAuto = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
+    submit = SubmitField('Submit')
+
+class DeleteCard(FlaskForm):
+    creditCardName = StringField('Card Name:', validators=[InputRequired()])
+    submit = SubmitField('Delete Card')

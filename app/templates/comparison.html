@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 
 {% block title %}
+<meta charset="utf-8">
 <title>Comparison Page</title>
+<meta name="viewport" content="width = device width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 
 {% block header %}
-{% if current_user.is_anonymous %}
 <a href="{{ url_for('home') }}">Home | </a>
+{% if current_user.is_anonymous %}
 <a href="{{ url_for('login') }}">Login | </a>
 <a href="{{ url_for('register') }}">Register</a>
 {% else %}
-<a href="{{ url_for('input_page') }}">Input Page</a>
-<a href="{{ url_for('output') }}">Profile Page</a>
+<a href="{{ url_for('input_page') }}">Input Page | </a>
+<a href="{{ url_for('output') }}">Profile Page | </a>
 <a href="{{ url_for('logout') }}">Logout</a>
 {% endif %}
 {% endblock %}
@@ -22,7 +25,7 @@
 <h1>Which Cards are better:</h1>
 {% for key,value in finalCards.items() %}
 <ul>
-    <p>{{key}}</p>
+    <p><b>{{key}}</b></p>
     {% for nestKey, nestValue in value.items() %}
     <li>{{nestValue}}</li>
     {% endfor %}

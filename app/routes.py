@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app import db
-from app.forms import LoginForm, RegistrationForm, InputForm, HomeForm
+from app.forms import LoginForm, RegistrationForm, InputForm, HomeForm, AdminForm, DeleteCard
 from app.models import User, UserCards, OurCards
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
@@ -89,6 +89,7 @@ def input_page():
     return render_template('input.html',  form=form)
 
 
+# all the credit cards, "output" is misleading
 @app.route('/output')
 def output():
     # form = completeForm()
@@ -114,12 +115,28 @@ def comparison():
             normSpend = card.onlineEstimate*card.cbOnlinePercentage + card.travelEstimate*card.cbTravelPercentage + card.autoEstimate*card.cbAutoPercentage
             ourSpend = card.onlineEstimate*ourcard.percentOnline + card.travelEstimate*ourcard.percentTravel + card.autoEstimate*ourcard.percentAuto
             if normSpend >= ourSpend:
-                apstr = "better card: " + card.cardName + " cb: " + str(normSpend) + " ocb: " + str(ourSpend)
+                apstr = card.cardName + " cb: " + str(normSpend) + " ocb: " + str(ourSpend)
             else:
-                apstr = "better card: " + ourcard.name + " cb : " + str(normSpend) + " ocb: " + str(ourSpend)
+                apstr = ourcard.name + " cb : " + str(normSpend) + " ocb: " + str(ourSpend)
             finalCards[card][ourcard] = apstr
         
     return render_template('comparison.html', finalCards=finalCards)
+
+@app.route('/admin', methods=['GET','POST'])
+def admin():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    # if not admin:
+    #     return redirect(url_for('output'))
+    form = AdminForm()
+    if form.validate_on_submit():
+        # flash('didnt work man')
+        card = OurCards(name=form.name.data,  percentOnline=form.percentOnline.data, percentTravel=form.percentTravel.data, percentAuto=form.percentAuto.data)
+        db.create_all()
+        db.session.add(card)
+        db.session.commit()
+        return redirect(url_for('admin'))
+    return render_template('admin.html', form=form)
 
 
 if __name__ == "__main__":

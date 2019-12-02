@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}
+<meta charset="utf-8">
 <title>Your Credit Card</title>
+<meta name="viewport" content="width = device width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 
 {% block header %} 
@@ -10,8 +13,8 @@
 <a href="{{ url_for('login') }}">Login | </a>
 <a href="{{ url_for('register') }}">Register</a>
 {% else %}
-<a href="{{ url_for('input_page') }}">Input Page</a>
-<a href="{{ url_for('comparison') }}">Comparison Page</a>
+<a href="{{ url_for('input_page') }}">Input Page | </a>
+<a href="{{ url_for('comparison') }}">Comparison Page | </a>
 <a href="{{ url_for('logout') }}">Logout</a>
 {% endif %}
 
