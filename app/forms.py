@@ -39,19 +39,19 @@ class InputForm(FlaskForm):
     onlineEstimate = DecimalField('Online Purchase Estimate: ', validators=[InputRequired()])
     travelEstimate = DecimalField('Travel Purchase Estimate: ', validators=[InputRequired()])
     autoEstimate = DecimalField('Auto Purchase Estimate: ', validators=[InputRequired()])
-    cOnlinePercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
-    cTravelPercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
-    cAutoPercentage = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
+    cOnlinePercentage = DecimalField('Online Cash Back Percentage: ', validators=[InputRequired()])
+    cTravelPercentage = DecimalField('Travel Cash Back Percentage: ', validators=[InputRequired()])
+    cAutoPercentage = DecimalField('Automotive Cash Back Percentage: ', validators=[InputRequired()])
     submit = SubmitField('Submit')
 
 
 class AdminForm(FlaskForm):
     name = StringField('Enter your current credit card:', validators=[InputRequired()])
-    percentOnline = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
-    percentTravel = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
-    percentAuto = DecimalField('Cash Back Percentage: ', validators=[InputRequired()])
+    percentOnline = DecimalField('Online Cash Back Percentage: ', validators=[InputRequired()])
+    percentTravel = DecimalField('Travel Cash Back Percentage: ', validators=[InputRequired()])
+    percentAuto = DecimalField('Automotive Cash Back Percentage: ', validators=[InputRequired()])
     submit = SubmitField('Submit')
 
 class DeleteCard(FlaskForm):
-    creditCardName = StringField('Card Name:', validators=[InputRequired()])
+    # creditCardName = StringField('Card Name:', validators=[InputRequired()])
     submit = SubmitField('Delete Card')
