@@ -24,7 +24,7 @@ class User(UserMixin, db.Model):
 
 class UserCards(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    userID = db.Column(db.Numeric, db.ForeignKey('user.id'))
+    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
     # name of credit card
     cardName = db.Column(db.String, index=True)
     # online spend

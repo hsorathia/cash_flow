@@ -1,10 +1,12 @@
 from flask import render_template, flash, redirect, url_for, request
-from app import app
-from app import db
-from app.forms import LoginForm, RegistrationForm, InputForm, HomeForm, AdminForm, DeleteCard
-from app.models import User, UserCards, OurCards
+# from app import app
+from flask import current_app as app
+from . import db
+from .forms import LoginForm, RegistrationForm, InputForm, HomeForm, AdminForm, DeleteCard
+from .models import User, UserCards, OurCards
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
+# import ast
 import os
 
 
