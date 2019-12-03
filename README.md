@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/hsorathia/cash_flow.svg?branch=master)](https://travis-ci.com/hsorathia/cash_flow)
 
 # Cashflow-An app designed to help you
 
