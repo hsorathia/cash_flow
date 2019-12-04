@@ -9,9 +9,7 @@ image_folder = os.path.join('static','image')
 app.config['UPLOAD_FOLDER'] = image_folder
 
 #pip install flask flask-wtf flask-sqlalchemy
-@app.route('/output')
-def output1():
-    return render_template('output1.html')
+@app.route('/')
 
 @app.route('/home')
 def home():
@@ -21,7 +19,9 @@ def home():
     filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'],'logo3.jpg')
     filename_background = os.path.join(app.config['UPLOAD_FOLDER'],'background.jpg')
     return render_template('home.html',logo1 = filename_logo1, logo2=filename_logo2, logo3 = filename_logo3, background = filename_background)
-@app.route('/')
+@app.route('/output')
+def output1():
+    return render_template('output.html')
 @app.route('/index')
 def index():
     return render_template('index.html')
@@ -37,12 +37,13 @@ def Login():
     return render_template('login.html',  title='Sign In', form=form)
 
 
-@app.route('/output')
-def output():
+#@app.route('/output')
+#def output():
     # form = completeForm()
-    valid = False
+    
+    #valid = False
 
-    return render_template('output.html', valid=valid)
+    #return render_template('output.html', valid=valid)
 
 
 app.run(debug=True)

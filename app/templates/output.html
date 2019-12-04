@@ -1,9 +1,98 @@
-{% extends "base.html" %} {% block title %}
-<title>Your Credit Card</title>
-{% endblock %} {% block body %} {% if valid %}
-<h1>Here's your ideal credit card!</h1>
-{% else %}
-<h2>
-  If you want to see your ideal credit card, please enter your information here!
-</h2>
-{% endif %}{% endblock %}
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+      
+        <title>Side-by-side Comparison</title>
+      
+        
+      
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
+      
+        <link href="{{ url_for('static', filename='css/style_output.css') }}" rel="stylesheet">
+      
+      </head>>
+
+<body>
+    <header>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div class="container">
+    
+            <a style="color:#e8491d" class="navbar-brand" href="{{url_for('home')}}">Cash Flow</a>
+            </style>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('home')}}">Home
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('Login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Sign Up</a>
+                </li>
+    
+              </ul>
+            </div>
+          </div>
+        </nav>
+    
+    
+      </header>
+  <h1>Comparison Table</h1>
+  <table>
+    <tr>
+      <th style="width:50%">Categories</th>
+      <th>Your card</th>
+      <th>Database</th>
+    </tr>
+    <tr>
+      <td>Dining</td>
+      <td><i>info here</i></td>
+      <td><i>info here</i></td>
+    </tr>
+    <tr>
+      <td>Grocery</td>
+      <td><i>info here</i></td>
+      <td><i>info here</i></td>
+    </tr>
+    <tr>
+      <td>Gas</td>
+      <td><i>info here</i></td>
+      <td><i>info here</i></td>
+    </tr>
+
+  </table>
+
+  <p>Explanation and Recommendations</p>
+
+  <footer class="py-1 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Cash Flow 2019</p>
+      </div>
+    </footer>
+
+</body>
+
+
+
+
+
+</html>

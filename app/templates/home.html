@@ -1,82 +1,107 @@
 <html>
+        {% extends "base.html" %} 
+        {% block title %}
+        <title>CashFlow - Home</title>
+        {% endblock %} 
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-<head>
-    <meta charset="utf-8">
-    <title> CashFlow | Welcome</title>
-    <meta name="viewport" content="width = device width">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-
+{% block body %}
 <body>
     <header>
 
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Cash</span> Flow</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"> <a href="{{ url_for('index') }}">Home</a></li>
-                    <li> <a href="{{ url_for('Login') }}">Login</a></li>
-                </ul>
-
-            </nav>
-        </div>
-    </header>
-    <section id="showcase">
-            <img src="{{background}}">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-            
-                <h1>Where You Save Money</h1>
-                <p>Credit card is a tool for you to earn money for what you buy every day. Many credit cards offer flat
-                    cash back for all purchases, while others will offer higher rate on rotating categories like dining,
-                    shopping, or gas. If you are still debating which is best, CashFlow will help you to find a card
-                    that
-                    aligns your spending habits. </p>
-            </div>
+                 
+                <a style = "color:#e8491d"  class="navbar-brand" href="{{url_for('home')}}">Cash Flow</a>
+                </style>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('Login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Up</a>
+                        </li>
 
-            <div id="button1">
-
-                <div class="container">
-
-                    <form>
-                        <button type="menu" class="button_1">Get Started</button>
-
-                        <p style="text-align: center;">Already using CashFlow? <a id="signIn"
-                                href="{{ url_for('Login') }}">Sign in.</a></p>
-                    </form>
-
+                    </ul>
                 </div>
             </div>
-    
+        </nav>
+
+
+    </header>
+    <section id="showcase">
+        <img src="{{background}}">
+        <div class="container">
+
+            <h1>Where You Save Money</h1>
+            <p>Credit card is a tool for you to earn money for what you buy every day. Many credit cards offer flat
+                cash back for all purchases, while others will offer higher rate on rotating categories like dining,
+                shopping, or gas. If you are still debating which is best, CashFlow will help you to find a card
+                that
+                aligns your spending habits. </p>
+        </div>
+
+        <div id="button1">
+
+            <div class="container">
+
+                <form>
+                    <!--Update the link later-->
+                    <button type="menu" class="button_1">
+                        <a href="#">Get Started</a></button>
+
+
+                    <p style="text-align: center;"> Already using CashFlow? <a id="signIn"
+                            href="{{ url_for('Login') }}">Sign in.</a></p>
+                </form>
+
+            </div>
+        </div>
+
     </section>
 
     <section id="boxes">
         <div class="container">
             <div class="box">
-                <img src="{{logo1}}">
+                <a href="https://creditcards.chase.com/freedom-credit-cards/unlimited">
+                    <img src="{{logo1}}">
+                </a>
                 <h2>Chase Freedom Unlimited</h2>
                 <p>$150 bonus after you spend $500 on purchases in your first 3 months from account opening</p>
             </div>
             <div class="box">
-                <img src="{{logo2}}">
+                <a href="https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/">
+                    <img src="{{logo2}}">
+                </a>
                 <h2>Bank of America Cash Rewards </h2>
                 <p>$200 cash rewards bonus after making at least $1,000 in purchases in the first 90 days from account
                     opening</p>
             </div>
             <div class="box">
-                <img src="{{logo3}}">
+                <a
+                    href="https://citicards.citi.com/usc/LPACA/Citi/Cards/DoubleCash/ps_A/index.html?cmp=KNC~01~110901~CRDACQXX~Google&gclid=Cj0KCQiAz53vBRCpARIsAPPsz8U4G7x7LC5V-24vfcEWe_Y4xePZlgWuytazHCqe8tJmvMm1HnHT8eYaAnFAEALw_wcB&gclsrc=aw.ds&BT_TX=1&ProspectID=F72D203FB454472781A04E01B8BCC6DC">
+                    <img src="{{logo3}}">
+                </a>
                 <h2>Citi Double Cash Card</h2>
                 <p> Earn 2% cash back on purchases 1% when you buy and 1% as you pay. No categories, caps or annual fee
                 </p>
             </div>
         </div>
     </section>
-    <footer>
-        <p>Cash Flow , Copyright &copy; 2019</p>
-    </footer>
-
+    
 
 </body>
+{% endblock %}
 
 </html>
