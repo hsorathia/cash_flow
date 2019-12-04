@@ -1,8 +1,10 @@
 import pytest
 from app.models import User, UserCards, OurCards
 import tempfile, os
-from app import app
+# from app import app
 from app import create_app
+from config import Config
+
 
 
 @pytest.fixture(scope='module')
