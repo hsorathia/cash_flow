@@ -6,8 +6,9 @@ from .forms import LoginForm, RegistrationForm, InputForm, HomeForm, AdminForm, 
 from .models import User, UserCards, OurCards
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
+# import ast
 import os
-import ast
+
 
 image_folder = os.path.join('static', 'image')
 app.config['UPLOAD_FOLDER'] = image_folder
