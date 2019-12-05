@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}
+<meta charset="utf-8">
+<title>Cash Flow | Data Input</title>
+<meta name="viewport" content="width = device width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- Import your css file here -->
+
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script> -->
+<!-- <link rel="stylesheet" href="style.css"> -->
+{% endblock %}
+
+{% block header %}
+<a href="{{ url_for('home') }}">Home | </a>
+<a href="{{ url_for('output') }}">Profile Page | </a>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="data row">
+        <div id="mainheader">
+            <h4> Cash Flow | Data Input </h4>
+            <form method="post" action="">
+                {{ form.csrf_token }}
+                {{ form.hidden_tag() }}
+                <div class="row">
+                    <div class="form-group col-md-50">
+                        <p>{{ form.creditCardName.label }} {{ form.creditCardName(size=32) }}</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="form-group col-md-50">
+                        <p>{{ form.onlineEstimate.label }} {{ form.onlineEstimate(size=32) }}</p>
+                    </div>
+                    <ul>
+                        <ul>
+                            <ul>
+                                <div class="form-group col-md-50">
+                                    <p>{{ form.cOnlinePercentage.label }} {{ form.cOnlinePercentage(size=32) }}</p>
+                                </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-50">
+                        <p>{{ form.travelEstimate.label }} {{ form.travelEstimate(size=32) }}</p>
+                    </div>
+                    <ul>
+                        <ul>
+                            <ul>
+                                <div class="form-group col-md-50">
+                                    <p>{{ form.cTravelPercentage.label }} {{ form.cTravelPercentage(size=32) }}</p>
+                                </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-50">
+                        <p>{{ form.autoEstimate.label }} {{ form.autoEstimate(size=32) }}</p>
+
+                    </div>
+                    <ul>
+                        <ul>
+                            <ul>
+                                <div class="form-group col-md-50">
+                                        <p>{{ form.cAutoPercentage.label }} {{ form.cAutoPercentage(size=32) }}</p>
+                                </div>
+                </div>
+                <br>
+                <p>{{ form.submit() }}</p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

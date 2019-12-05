@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}
+<meta charset="utf-8">
+<title>Cash Flow | Admin Page</title>
+<meta name="viewport" content="width = device width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% endblock %}
+
+{% block header %}
+<a href="{{ url_for('home') }}">Home | </a>
+<a href="{{ url_for('input_page') }}">Input Page | </a>
+<a href="{{ url_for('output') }}">Profile Page | </a>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
+
+{% block body %}
+<h1>Input new card into our data base:</h1>
+<div class="container">
+    <div class="data row">
+        <div id="mainheader">
+            <h4> Cash Flow | Admin Input </h4>
+            <form method="post" action="">
+                {{ form.csrf_token }}
+                {{ form.hidden_tag() }}
+                <div class="row">
+                    <p>{{ form.name.label }} {{ form.name(size=32) }}</p>
+                </div>
+                <br>
+                <div class="row">
+                    <p>{{ form.percentOnline.label }} {{ form.percentOnline(size=32) }}</p>
+                </div>
+                <div class="row">
+                    <p>{{ form.percentTravel.label }} {{ form.percentTravel(size=32) }}</p>
+                </div>
+                <div class="row">
+                    <p>{{ form.percentAuto.label }} {{ form.percentAuto(size=32) }}</p>
+                </div>
+                <br>
+                <p>{{ form.submit() }}</p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
