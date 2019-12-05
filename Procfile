@@ -1,1 +1,1 @@
-web: gunicorn app:cashflow
+web: gunicorn cashflow:app
