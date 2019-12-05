@@ -2,6 +2,7 @@ from app import db
 from app import login
 from flask_login import UserMixin
 
+
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -24,7 +25,7 @@ class User(UserMixin, db.Model):
 
 class UserCards(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
+    userID = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
     # name of credit card
     cardName = db.Column(db.String, index=True)
     # online spend
