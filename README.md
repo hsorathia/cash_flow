@@ -23,6 +23,31 @@ export FLASK_APP = cashflow
 flask run
 ```
 
+This [url](https://cash-flo.herokuapp.com/) links to the heroku application for
+this project (to verify that we deployed the application to heroku).
+
+# Verifying the Doc Files
+
+After cloning the repository, the doc files will be located within the "Docs"
+folder, and within a file explorer, right clicking the "index.html" file located
+in
+
+```
+./docs/build/html/index.html
+```
+
+# Travis-CI and Testing
+
+This project (as indicated by the build state banner at the top of this readme)
+has Travis-CI enabled. In order to check the status of the unit tests
+clone the repository and within some sort of command prompt (cmd, powershell,
+bash, etc.), navigate to the root directory of this application and type in
+
+```
+pytest
+```
+and the unit tests should run.
+
 # Verifying the features
 
 ## Home page
