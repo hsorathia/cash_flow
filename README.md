@@ -10,6 +10,7 @@ To run this application, you first need to clone the repository. Then, navigate
 to the directory where it was cloned and open it in a terminal.
 
 Then either of the following commands should work:
+
 ```
 flask run
 ```
@@ -68,7 +69,7 @@ three overall categories, and how much cash back (percentage) they receive from
 this. After they press the submit button, the user will be redirected to the
 final output page.
 
-## Output Page
+## Output Page / Card Profile Page
 
 Currently, this page outputs the users credit cards. Here they can view their
 current cards, and eventually they'll be able to remove and add a credit card.
@@ -80,3 +81,30 @@ ones that will be run through the comparison.
 This feature can be visible on a variety of degrees based on the page that the
 user is on. Currently the CSS is complete for the Home, Login, and Registration
 Page. Eventually, CSS will be applied to all of the web pages.
+
+## Comparison Page
+
+This feature compares the users credit cards to the ones on the database. It
+first tells the user what the better credit card is (based on their input), and
+then simlarly outputs their current cashback value with their card, and the card
+it's being compared to.
+
+## Delete Functionality
+
+On the Profile Page, allows users to delete the selected card they want. It will
+be removed from the db.
+
+## Models/Databases
+
+Implemented three databases, one for the user, the user credit cards, and the
+credit cards that we've confirmed. The User and User Credit Cards hold a
+relationship (from user to credit cards) as each user will have a set of credit
+cards. The credit cards we've confirmed are seperate and more can be added
+through the admin page.
+
+## Admin Page
+
+Currently the only admin user is "bibah", which has a password of "bb". From the
+home page, this user will be able to access the admin page where they can input
+a new credit card. This change can be seen on the comparison page which will now
+display one more list component that any users credit card will be compared to.
