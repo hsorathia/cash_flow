@@ -83,4 +83,12 @@ def test_home_page(test_client):
     response = test_client.get('/')
     assert response.status_code == 200
     
-# # def test_new_user
+    
+# test 9: validate that we can register a user
+def test_valid_register(test_client):
+
+    response = test_client.post('/register',
+                                data=dict(username='testing', email='testing@testing.com', password='testing', confirm='testing'),
+                                follow_redirects=True)
+    assert response.status_code == 200
+    

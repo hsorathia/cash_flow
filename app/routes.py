@@ -16,6 +16,11 @@ app.config['UPLOAD_FOLDER'] = image_folder
 @app.route('/')
 @app.route('/home')
 def home():
+    """Home Page
+    
+    :return: Displays the home page of the website
+    """
+    
     if current_user.is_authenticated:
         flash(current_user.username)
     filename_logo1 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo1.jpg')
@@ -23,6 +28,8 @@ def home():
     filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo3.png')
     form = HomeForm()
     if form.validate_on_submit():
+        # direct users who interact with this page's buttons to the input page 
+        # or login page
         if current_user.is_authenticated:
             return redirect(url_for('input_page'))
         else:
@@ -32,6 +39,10 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """Login page
+    
+    :return: Page for logging in users 
+    """
     if current_user.is_authenticated:
         return redirect(url_for('input_page'))
 
@@ -53,6 +64,10 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    """Register page
+    
+    :return: Page for registering users new to the website
+    """
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
@@ -69,12 +84,20 @@ def register():
 
 @app.route('/logout')
 def logout():
+    """Logout functionality
+    
+    :return: Logs users out of their accounts
+    """
     logout_user()
     return redirect(url_for('home'))
 
 
 @app.route('/input_page', methods=['GET', 'POST'])
 def input_page():
+    """Input page
+    
+    :return: Page for allowing users to register 
+    """
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     form = InputForm()
@@ -95,6 +118,10 @@ def input_page():
 # all the credit cards, "output" is misleading
 @app.route('/output')
 def output():
+    """Output/Profile page
+    
+    :return: Page for displaying all cards owned by a user
+    """
     # form = completeForm()
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
@@ -104,6 +131,10 @@ def output():
 
 @app.route('/output/delete/<int:id>', methods=['POST'])
 def delete(id):
+    """Delete Functionality
+    
+    :return: Route for deleting a specific card from a user
+    """
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     card = UserCards.query.filter_by(id=id).all()
@@ -117,6 +148,10 @@ def delete(id):
 
 @app.route('/comparison')
 def comparison():
+    """Comparison page
+    
+    :return: Page that shows the better of two cards and values that depict why that card was better
+    """
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     usercards = current_user.usercards.all()
@@ -124,6 +159,8 @@ def comparison():
         return redirect(url_for('input'))
     appcards = OurCards.query.all()
     finalCards = {}
+    # go through cards in our data base's and calculate values to find the better
+    # between two cards
     for card in usercards:
         # bestCard = {}
         finalCards[card] = {}
@@ -140,10 +177,16 @@ def comparison():
 
 @app.route('/admin', methods=['GET','POST'])
 def admin():
+    """Admin page
+    
+    :return: Page for allowing admin users to edit the current database of credit cards
+    """
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
     # if not admin:
     #     return redirect(url_for('output'))
+    
+    # redirects user if they're not admins of the website
     if current_user.username == 'bibah':
         form = AdminForm()
         if form.validate_on_submit():
