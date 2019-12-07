@@ -26,7 +26,7 @@ If the above command does not work, the following command can also be used (on
 Linux):
 
 ```
-export FLASK_APP = cashflow
+export FLASK_APP=cashflow
 flask run
 ```
 
