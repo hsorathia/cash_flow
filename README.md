@@ -9,6 +9,13 @@ The purpose of cash flow is to make it easy for its user to make a broad range o
 To run this application, you first need to clone the repository. Then, navigate
 to the directory where it was cloned and open it in a terminal.
 
+Then, after cloning the repository, ensure that yo uhave installed the required
+packages by running the following command:
+
+```
+pip install -U -r requirements.txt
+```
+
 Then either of the following commands should work:
 
 ```
@@ -133,3 +140,4 @@ Currently the only admin user is "bibah", which has a password of "bb". From the
 home page, this user will be able to access the admin page where they can input
 a new credit card. This change can be seen on the comparison page which will now
 display one more list component that any users credit card will be compared to.
+
