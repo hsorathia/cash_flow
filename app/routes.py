@@ -104,7 +104,7 @@ def input_page():
     # flash(form.errors) lets you know if something in the form failed.
     if form.validate_on_submit():
         # flash('didnt work man')
-        card = UserCards(author=current_user, cardName=form.creditCardName.data, onlineEstimate=form.onlineEstimate.data, cbOnlinePercentage=form.cOnlinePercentage.data, travelEstimate=form.travelEstimate.data, cbTravelPercentage=form.cTravelPercentage.data, autoEstimate=form.autoEstimate.data, cbAutoPercentage=form.cAutoPercentage.data)
+        card = UserCards(userID=current_user.id, cardName=form.creditCardName.data, onlineEstimate=form.onlineEstimate.data, cbOnlinePercentage=form.cOnlinePercentage.data, travelEstimate=form.travelEstimate.data, cbTravelPercentage=form.cTravelPercentage.data, autoEstimate=form.autoEstimate.data, cbAutoPercentage=form.cAutoPercentage.data)
         db.create_all()
         db.session.add(card)
         db.session.commit()

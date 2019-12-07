@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(128), index=True, unique=True)
     password_hash = db.Column(db.String(128))
@@ -25,19 +25,19 @@ class User(UserMixin, db.Model):
 
 class UserCards(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    userID = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
+    userID = db.Column(db.Integer, db.ForeignKey('user.id'))
     # name of credit card
     cardName = db.Column(db.String, index=True)
     # online spend
-    onlineEstimate = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
+    onlineEstimate = db.Column(db.Numeric(precision=8, asdecimal=False, decimal_return_scale=None), index=True)
     # points or pecent cashback online
     cbOnlinePercentage = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
     # travel spend
-    travelEstimate = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
+    travelEstimate = db.Column(db.Numeric(precision=8, asdecimal=False, decimal_return_scale=None), index=True)
     # points or pecent cashback travel
     cbTravelPercentage = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
     # auto spend
-    autoEstimate = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
+    autoEstimate = db.Column(db.Numeric(precision=8, asdecimal=False, decimal_return_scale=None), index=True)
     # points or pecent cashback auto
     cbAutoPercentage = db.Column(db.Numeric(precision=2, asdecimal=False, decimal_return_scale=None), index=True)
 
