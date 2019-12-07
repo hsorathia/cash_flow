@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="Python">
   <head>
     <meta charset="utf-8" />
-    <title>Welcome to Cash Flow&#39;s documentation! &#8212; Cash Flow .1 documentation</title>
+    <title>Cashflow-An app designed to help you &#8212; Cash Flow .2 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,65 +30,187 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-cash-flow-s-documentation">
-<h1>Welcome to Cash Flow's documentation!<a class="headerlink" href="#welcome-to-cash-flow-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="cashflow-an-app-designed-to-help-you">
+<h1>Cashflow-An app designed to help you<a class="headerlink" href="#cashflow-an-app-designed-to-help-you" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of cash flow is to make it easy for its user to make a broad range of comparisons between their current credit cards and other potential credit cards (such as the one offered by costco), and notify them if their card is better for them, or if the other card is.</p>
 </div>
-<div class="section" id="cash-flow-main">
-<h1>Cash Flow Main<a class="headerlink" href="#cash-flow-main" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="running-the-application">
+<h1>Running the application<a class="headerlink" href="#running-the-application" title="Permalink to this headline">¶</a></h1>
+<p>To run this application, you first need to clone the repository. Then, navigate
+to the directory where it was cloned and open it in a terminal.</p>
+<p>Then, after cloning the repository, ensure that yo uhave installed the required
+packages by running the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+<p>Then either of the following commands should work:</p>
+<p><code class="docutils literal notranslate"><span class="pre">flask</span> <span class="pre">run</span></code></p>
+<p>If the above command does not work, the following command can also be used (on
+Linux):</p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">FLASK_APP</span> <span class="pre">=</span> <span class="pre">cashflow</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">flask</span> <span class="pre">run</span></code></p>
+<p><a class="reference external" href="https://cash-flo.herokuapp.com/">https://cash-flo.herokuapp.com/</a> links to the heroku application for
+this project (to verify that we deployed the application to heroku).</p>
 </div>
-<div class="section" id="register">
-<h1>Register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows user to register for an account after they provide a valid username,
-email, and password.</p>
-</div></blockquote>
+<div class="section" id="verifying-the-doc-files">
+<h1>Verifying the Doc Files<a class="headerlink" href="#verifying-the-doc-files" title="Permalink to this headline">¶</a></h1>
+<p>After cloning the repository, the doc files will be located within the &quot;Docs&quot;
+folder, and within a file explorer, right clicking the &quot;index.html&quot; file located
+in</p>
+<p><code class="docutils literal notranslate"><span class="pre">./docs/build/html/index.html</span></code></p>
+</div>
+<div class="section" id="travis-ci-and-testing">
+<h1>Travis-CI and Testing<a class="headerlink" href="#travis-ci-and-testing" title="Permalink to this headline">¶</a></h1>
+<p>This project (as indicated by the build state banner at the top of this readme)
+has Travis-CI enabled. In order to check the status of the unit tests
+clone the repository and within some sort of command prompt (cmd, powershell,
+bash, etc.), navigate to the root directory of this application and type in</p>
+<p><code class="docutils literal notranslate"><span class="pre">pytest</span></code>
+and the unit tests should run.</p>
+</div>
+<div class="section" id="verifying-the-features">
+<h1>Verifying the features<a class="headerlink" href="#verifying-the-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="home-page">
+<h2>Home page<a class="headerlink" href="#home-page" title="Permalink to this headline">¶</a></h2>
+<p>The functionality of this feature can be verified by launching the application.
+Each page on the website should be able to connect to the home page through the
+NAV bar.</p>
+</div>
+<div class="section" id="nav-bar">
+<h2>Nav Bar<a class="headerlink" href="#nav-bar" title="Permalink to this headline">¶</a></h2>
+<p>This feature exists on every single page. It automatically adjusts itself
+depending on the page that the user is on, and it also adjusts itself if the user
+is logged in or not. If the user is logged on, they'll only have the ability to
+logout. If the user is not logged in, they'll be able to login or register.</p>
 </div>
 <div class="section" id="login">
-<h1>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows user to login to an account that they created.</p>
-</div></blockquote>
+<h2>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h2>
+<p>This feature can be tested by clicking on the &quot;login&quot; button on the NAV bar
+or by pressing the &quot;get started&quot; button on the home page to view this page.
+This page enables users to log in, and once logged in, they should be taken to
+the input page where they can put their credit card name, and the information
+associated with it. There is also a link on the login page that routes users to
+the register page if they don't have an account.</p>
+</div>
+<div class="section" id="register">
+<h2>Register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h2>
+<p>Similar to the Login feauture, this feature can be tested by clicking on the
+&quot;register&quot; button on the NAV bar. If a user doesn't input data into one of the
+fields or if they don't type in a correctly formatted email, it should prompt
+them to try again. After they sign up, they should be redirected to the login
+page, where they can sign in with their new username/password.</p>
 </div>
 <div class="section" id="logout">
-<h1>Logout<a class="headerlink" href="#logout" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows user to logout of an account that they're currently logged into.</p>
-</div></blockquote>
+<h2>Logout<a class="headerlink" href="#logout" title="Permalink to this headline">¶</a></h2>
+<p>This feature appears on the NAV bar after a user logs in. By logging in, the
+user should have the ability to logout, and they will be redirected to the home
+page.</p>
 </div>
-<div class="section" id="navigation-bar">
-<h1>Navigation Bar<a class="headerlink" href="#navigation-bar" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows user to navigate to other web pages on the website.</p>
-</div></blockquote>
+<div class="section" id="input-page">
+<h2>Input Page<a class="headerlink" href="#input-page" title="Permalink to this headline">¶</a></h2>
+<p>The user is redirected here after they login. On this page they can input basic
+information about their credit card, such as the amount of money they spend on
+three overall categories, and how much cash back (percentage) they receive from
+this. After they press the submit button, the user will be redirected to the
+final output page.</p>
 </div>
-<div class="section" id="input-credit-card">
-<h1>Input Credit Card<a class="headerlink" href="#input-credit-card" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows user to input credit card information such as their current cash
-back options and the amount they spend per month.</p>
-</div></blockquote>
+<div class="section" id="output-page-card-profile-page">
+<h2>Output Page / Card Profile Page<a class="headerlink" href="#output-page-card-profile-page" title="Permalink to this headline">¶</a></h2>
+<p>Currently, this page outputs the users credit cards. Here they can view their
+current cards, and eventually they'll be able to remove and add a credit card.
+This is so the user can manage the total amount of cards that they have, and the
+ones that will be run through the comparison.</p>
 </div>
-<div class="section" id="delete-credit-card">
-<h1>Delete Credit Card<a class="headerlink" href="#delete-credit-card" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows users to delete credit cards that they no longer need.</p>
-</div></blockquote>
+<div class="section" id="css">
+<h2>CSS<a class="headerlink" href="#css" title="Permalink to this headline">¶</a></h2>
+<p>This feature can be visible on a variety of degrees based on the page that the
+user is on. Currently the CSS is complete for the Home, Login, and Registration
+Page. Eventually, CSS will be applied to all of the web pages.</p>
 </div>
-<div class="section" id="compare-credit-cards">
-<h1>Compare Credit Cards<a class="headerlink" href="#compare-credit-cards" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows user to see other credit cards that are confirmed to be good, and
-see if other cards are better or not.</p>
-</div></blockquote>
+<div class="section" id="comparison-page">
+<h2>Comparison Page<a class="headerlink" href="#comparison-page" title="Permalink to this headline">¶</a></h2>
+<p>This feature compares the users credit cards to the ones on the database. It
+first tells the user what the better credit card is (based on their input), and
+then simlarly outputs their current cashback value with their card, and the card
+it's being compared to.</p>
+</div>
+<div class="section" id="delete-functionality">
+<h2>Delete Functionality<a class="headerlink" href="#delete-functionality" title="Permalink to this headline">¶</a></h2>
+<p>On the Profile Page, allows users to delete the selected card they want. It will
+be removed from the db.</p>
+</div>
+<div class="section" id="models-databases">
+<h2>Models/Databases<a class="headerlink" href="#models-databases" title="Permalink to this headline">¶</a></h2>
+<p>Implemented three databases, one for the user, the user credit cards, and the
+credit cards that we've confirmed. The User and User Credit Cards hold a
+relationship (from user to credit cards) as each user will have a set of credit
+cards. The credit cards we've confirmed are seperate and more can be added
+through the admin page.</p>
 </div>
 <div class="section" id="admin-page">
-<h1>Admin Page<a class="headerlink" href="#admin-page" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Allows admin users to delete and create new credit cards that users can
-compare their current credit cards to.</p>
-</div></blockquote>
+<h2>Admin Page<a class="headerlink" href="#admin-page" title="Permalink to this headline">¶</a></h2>
+<p>Currently the only admin user is &quot;bibah&quot;, which has a password of &quot;bb&quot;. From the
+home page, this user will be able to access the admin page where they can input
+a new credit card. This change can be seen on the comparison page which will now
+display one more list component that any users credit card will be compared to.</p>
+</div>
+</div>
+<div class="section" id="navigation">
+<h1>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h1>
+<p>The root folder is as follows:</p>
+<img alt="_images/root.png" src="_images/root.png" />
+<p>In the root level there are a few subdirectories and some important files.
+- The app subdirectory contains the model, view, and controller of the application.
+- The docs subdirectory contains the documentation in sphinx.
+- calculator.py is a test file that we created as a proof of concept to
+ourselves of how to calculate cash back from a credit card.
+- The cashflow.py file is our front level of our application, and it should be
+able to run the application as well.
+- config.py is a configuration file that contains information about how our
+database should handle passwords and where it shuold route to.
+- requirements.txt contains the pip requirements for this application
+- test_my_program.py is the file that contains all the unit tetss that we ran
+for this application</p>
+<p>The application folder is as follows:</p>
+<img alt="_images/app.png" src="_images/app.png" />
+<p>In the application level, we're presented with some more subdirectories, and some
+more important files.
+- static is a subdirectory that contains the css that we used for several html
+pages
+- templates is the subdirectory responsible for the html files that our
+application will use
+- __init__.py is the package file that we configured to initialize the application
+- extensions.py is a file we created to instantiate our database, login manager,
+and heroku
+- forms.py is a file containing all the forms that we used to obtain user input
+- models.py is the file that we built our databases in
+- routes.py is the controller for this application, and it handles what happens
+when the user is navigating through our website</p>
+<p>As the user browses our application, they will be greeted with the home page,
+and the first thing a user should do, is to make a new account using the login/
+register options. After logging in, they will see the following page</p>
+<img alt="_images/input.png" src="_images/input.png" />
+<p>Here the user will be able to input their credit card name, the amount of money
+they spend in the automotive (car), travel, and their online spending, as well
+as the cash back values they obtain (from their credit car company) on these
+categories.</p>
+<p>After submitting this information, in the &quot;profile&quot; page, the user can find that
+their card has been added to the database, and they can delete it if they want</p>
+<img alt="_images/Profile.png" src="_images/Profile.png" />
+<p>And this result can be seen above.</p>
+<p>Afterwards, log out, and route back to the home page. Then login again using
+&quot;bibah&quot; as the username and &quot;bb&quot; as the password (if this hasn't been created,
+register this as a user, the password can be what you choose). Then, go back to
+the homepage and this navigation bar should be visible:</p>
+<img alt="_images/navigation.png" src="_images/navigation.png" />
+<p>The user should now be able to click on the &quot;admin page&quot; and they will be
+greeted with the following</p>
+<img alt="_images/admin.png" src="_images/admin.png" />
+<p>Where they can add a new &quot;confirmed&quot; credit card.</p>
+<p>To view the results of all this work, log out and then log back into the Testing
+account created earlier, and then navigate to the comparison/final page, where
+the following should be visible:</p>
+<img alt="_images/final.png" src="_images/final.png" />
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>

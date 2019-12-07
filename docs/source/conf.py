@@ -10,10 +10,10 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('../..'))
-# sys.setrecursionlimit(1500)
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../..'))
+sys.setrecursionlimit(1500)
 
 
 # -- Project information -----------------------------------------------------
@@ -23,7 +23,7 @@ copyright = '2019, Team 6'
 author = 'Team 6'
 
 # The full version, including alpha/beta/rc tags
-release = '.1'
+release = '.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -33,6 +33,9 @@ release = '.1'
 # ones.
 extensions = [
     # 'rinoh.frontend.sphinx'
+    'sphinx.ext.autodoc',
+    'sphinx.ext.doctest',
+    'sphinx.ext.coverage',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
