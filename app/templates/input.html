@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}
+<meta charset="utf-8">
+<title>Cash Flow | Data Input</title>
+<meta name="viewport" content="width = device width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_input.css') }}">
+
+<!-- Import your css file here -->
+
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script> -->
+<!-- <link rel="stylesheet" href="style.css"> -->
+{% endblock %}
+
+{% block header %}
+<a href="{{ url_for('home') }}">Home | </a>
+<a href="{{ url_for('output') }}">Profile Page | </a>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <div class="data row">
+        <div id="mainheader">
+            <h1> Cash Flow | Data Input </h1>
+            <form method="post" action="">
+                {{ form.csrf_token }}
+                {{ form.hidden_tag() }}
+              <br>
+              <label> Enter your Credit Card Brand </label>
+              <p>{{ form.creditCardName.label }} {{ form.creditCardName(size=32) }}</p>
+               
+              <br>
+              <br>
+              <label> Enter your Online Purchase Estimation </label>
+              <p>{{ form.onlineEstimate.label }} {{ form.onlineEstimate(size=32) }}</p>
+              <p>{{ form.cOnlinePercentage.label }} {{ form.cOnlinePercentage(size=32) }}</p>
+             
+              <br>
+              <br>
+              
+              <label> Enter your Travel Estimation </label>
+              <p>{{ form.travelEstimate.label }} {{ form.travelEstimate(size=32) }}</p>
+              <p>{{ form.cTravelPercentage.label }} {{ form.cTravelPercentage(size=32) }}</p>
+              <br>
+              <br>
+              
+              <label> Enter your Auto Estimation </label> 
+              <p>{{ form.autoEstimate.label }} {{ form.autoEstimate(size=32) }}</p>
+              <p>{{ form.cAutoPercentage.label }} {{ form.cAutoPercentage(size=32) }}</p>
+              <br>
+              <br>
+              
+                <br>
+                <p>{{ form.submit() }}</p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
