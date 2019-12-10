@@ -4,23 +4,27 @@
 
 The purpose of cash flow is to make it easy for its user to make a broad range of comparisons between their current credit cards and other potential credit cards (such as the one offered by costco), and notify them if their card is better for them, or if the other card is.
 
+This is the [Live Website](https://cash-flo.herokuapp.com/) for our application, it links to the heroku page where it is hosted.
+
 # Running the application
 
-To run this application, you first need to clone the repository. Then, navigate
-to the directory where it was cloned and open it in a terminal.
-
-Then, after cloning the repository, ensure that yo uhave installed the required
-packages by running the following command:
+To begin running this application, you can either head over to our [heroku application](https://cash-flo.herokuapp.com/),
+or clone this repository using 
+```
+git clone https://github.com/hsorathia/cash_flow.git
+```
+Then, in order to run it, navigate to the root directory and run this command to ensure the correct packages are installed:
 
 ```
 pip install -U -r requirements.txt
 ```
 
-Then either of the following commands should work:
+Afterwards, using the command:
 
 ```
 flask run
 ```
+Should run the application. Or, you can navigate to cashflow.py, and run that file. 
 
 If the above command does not work, the following command can also be used (on
 Linux):
@@ -30,30 +34,38 @@ export FLASK_APP=cashflow
 flask run
 ```
 
-This [url](https://cash-flo.herokuapp.com/) links to the heroku application for
-this project (to verify that we deployed the application to heroku).
-
 # Verifying the Doc Files
 
 After cloning the repository, the doc files will be located within the "Docs"
-folder, and within a file explorer, right clicking the "index.html" file located
-in
+folder:
 
 ```
 ./docs/build/html/index.html
 ```
+Inside the documentation, you will find more details about the features and how to 
+navigate through the application.
 
 # Travis-CI and Testing
 
 This project (as indicated by the build state banner at the top of this readme)
-has Travis-CI enabled. In order to check the status of the unit tests
-clone the repository and within some sort of command prompt (cmd, powershell,
-bash, etc.), navigate to the root directory of this application and type in
+has Travis-CI enabled. In order to check the status of the unit tests,
+navigate to the root directory of this application and type in:
 
 ```
 pytest
 ```
+
 and the unit tests should run.
+
+# General Help
+
+If you add new cards, and you go to the final comparison page and only see the name of the cards
+that you have inputed, then you need to add some more "certified" cards, by going to the admin page.
+To access the admin page, you will need to login to an account called "bibah", which should have the
+password "bb". If the account doesn't exist, then you need to create it using a username and password that
+you wish. Then access the admin page, and add however many certified cards you want to.
+Then, you can log back into your account, and see the comparison page again, and it should have an unordered
+list under the card that it is comparing.
 
 # Verifying the features
 
