@@ -30,47 +30,31 @@
             <form method="post" action="">
                 {{ form.csrf_token }}
                 {{ form.hidden_tag() }}
-                <div class="row">
-                    <div class="form-group col-md-50">
-                        <p>{{ form.creditCardName.label }} {{ form.creditCardName(size=32) }}</p>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="form-group col-md-50">
-                        <p>{{ form.onlineEstimate.label }} {{ form.onlineEstimate(size=32) }}</p>
-                    </div>
-                    <ul>
-                        <ul>
-                            <ul>
-                                <div class="form-group col-md-50">
-                                    <p>{{ form.cOnlinePercentage.label }} {{ form.cOnlinePercentage(size=32) }}</p>
-                                </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-50">
-                        <p>{{ form.travelEstimate.label }} {{ form.travelEstimate(size=32) }}</p>
-                    </div>
-                    <ul>
-                        <ul>
-                            <ul>
-                                <div class="form-group col-md-50">
-                                    <p>{{ form.cTravelPercentage.label }} {{ form.cTravelPercentage(size=32) }}</p>
-                                </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-md-50">
-                        <p>{{ form.autoEstimate.label }} {{ form.autoEstimate(size=32) }}</p>
-
-                    </div>
-                    <ul>
-                        <ul>
-                            <ul>
-                                <div class="form-group col-md-50">
-                                        <p>{{ form.cAutoPercentage.label }} {{ form.cAutoPercentage(size=32) }}</p>
-                                </div>
-                </div>
+              <br>
+              <label> 1. Enter your Credit Card Brand </label>
+              <p>{{ form.creditCardName.label }} {{ form.creditCardName(size=32) }}</p>
+               
+              <br>
+              <br>
+              <label> 2. Enter your Online Purchase Estimation </label>
+              <p>{{ form.onlineEstimate.label }} {{ form.onlineEstimate(size=32) }}</p>
+              <p>{{ form.cOnlinePercentage.label }} {{ form.cOnlinePercentage(size=32) }}</p>
+             
+              <br>
+              <br>
+              
+              <label> 3. Enter your TRavel Estimation </label>
+              <p>{{ form.travelEstimate.label }} {{ form.travelEstimate(size=32) }}</p>
+              <p>{{ form.cTravelPercentage.label }} {{ form.cTravelPercentage(size=32) }}</p>
+              <br>
+              <br>
+              
+              <label> 4. Enter your Auto Estimation </label> 
+              <p>{{ form.autoEstimate.label }} {{ form.autoEstimate(size=32) }}</p>
+              <p>{{ form.cAutoPercentage.label }} {{ form.cAutoPercentage(size=32) }}</p>
+              <br>
+              <br>
+              
                 <br>
                 <p>{{ form.submit() }}</p>
             </form>

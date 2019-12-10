@@ -16,6 +16,10 @@ app.config['UPLOAD_FOLDER'] = image_folder
 @app.route('/')
 @app.route('/home')
 def home():
+<<<<<<< HEAD
+    # if current_user.is_authenticated:
+        #flash(current_user.username)
+=======
     """Home Page
     
     :return: Displays the home page of the website
@@ -23,9 +27,11 @@ def home():
     
     if current_user.is_authenticated:
         flash(current_user.username)
+>>>>>>> 81a0a11e8d1ad28438de66082a87bfb26c284c02
     filename_logo1 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo1.jpg')
     filename_logo2 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo2.png')
     filename_logo3 = os.path.join(app.config['UPLOAD_FOLDER'], 'logo3.png')
+    filename_background = os.path.join(app.config['UPLOAD_FOLDER'], 'background.jpg')
     form = HomeForm()
     if form.validate_on_submit():
         # direct users who interact with this page's buttons to the input page 
@@ -34,7 +40,7 @@ def home():
             return redirect(url_for('input_page'))
         else:
             return redirect(url_for('login'))
-    return render_template('home.html', form=form, logo1=filename_logo1, logo2=filename_logo2, logo3=filename_logo3)
+    return render_template('home.html', form=form, logo1=filename_logo1, logo2=filename_logo2, logo3=filename_logo3,background=filename_background)
 
 
 @app.route('/login', methods=['GET', 'POST'])

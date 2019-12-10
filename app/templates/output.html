@@ -24,36 +24,68 @@
 
 
 {% block body %}
-<h1>Cards:</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_output.css') }}">
+<h1>Profile</h1>
 {% for card in usercards %}
 <h2>{{card.cardName}}: </h2>
-<h3>
-    Online Estimate and Percentage back: {{card.onlineEstimate}} | {{card.cbOnlinePercentage}}
-</h3>
-<h3>
-    Travel Estimate and Percentage back: {{card.travelEstimate}} | {{card.cbTravelPercentage}}
-</h3>
-<h3>
-    Auto Estimate and Percentage back: {{card.autoEstimate}} | {{card.cbAutoPercentage}}
-</h3>
-<button class="delete" id={{card.id}} >delete</button>
+<table>
+    <tr>
+        <th style="width:50%">Categories</th>
+        <th>Estimate Spending </th>
+        <th>Percentage back</th>
+    </tr>
+
+    <tr>
+        <td>Online</td>
+        <td><i>{{card.onlineEstimate}}</i></td>
+        <td><i>{{card.cbOnlinePercentage}}</i></td>
+    </tr>
+
+    <tr>
+        <td>Travel</td>
+        <td><i>{{card.travelEstimate}}</i></td>
+        <td><i>{{card.cbTravelPercentage}}</i></td>
+    </tr>
+
+    <tr>
+        <td>Auto</td>
+        <td><i>{{card.autoEstimate}}</i></td>
+        <td><i>{{card.cbAutoPercentage}}</i></td>
+    </tr>
+
+
+</table>
+
+<div id="button_delete">
+    <div class="container">
+        <form>
+            <button class="delete" id={{card.id}}>Delete</button>
+        </form>
+    </div>
+</div>
 {% endfor %}
 
 <script>
-        $(document).ready(function () {
-            $(".delete").click(function (e) {
-                console.log(this.id)
-                // var js_data = JSON.stringify(this.id);
-                $.ajax({
-                    url: '/output/delete/'+this.id,
-                    type: 'post'
-                }).done(function () {
-                    location.reload();
-                }).fail(function (jqXHR, textStatus, errorThrown) {
-                    location.reload();
-                });
-            })
+    $(document).ready(function () {
+        $(".delete").click(function (e) {
+            console.log(this.id)
+            // var js_data = JSON.stringify(this.id);
+            $.ajax({
+                url: '/output/delete/' + this.id,
+                type: 'post'
+            }).done(function () {
+                location.reload();
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                location.reload();
+            });
         })
-    </script>
+    })
+</script>
 
 {% endblock %}
