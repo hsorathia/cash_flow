@@ -35,6 +35,7 @@
 {% endblock %}
 {% block body %}
 <section id="showcase">
+    <img src="{{background}}">
     <div class="container">
         <h1>Where You Save Money</h1>
         <p>Cash Back Reward is a tool for you to earn money for what you buy every day. Many credit cards offer flat
@@ -42,35 +43,47 @@
             shopping, or gas. If you are still debating which is best, CashFlow will help you to find a card that
             aligns your spending habits. </p>
     </div>
-</section>
+
 <section id="button1">
 
     <div class="container">
         <form>
-            <p type="menu" class="button_1"><a href="{{ url_for('login') }}">Get Started</p>
+            <button type="menu" class="button_1">
+                <a href="{{ url_for('login') }}">Get Started</a></button>
+
+
+            <p style="text-align: center;"> Already using CashFlow? <a id="signIn" href="{{ url_for('register') }}">Sign
+                    in.</a></p>
         </form>
     </div>
+</section>
 </section>
 
 <section id="boxes">
     <div class="container">
         <div class="box">
-            <img src="{{logo1}}">
+            <a href="https://creditcards.chase.com/freedom-credit-cards/unlimited">
+                <img src="{{logo1}}">
+            </a>
             <h2>Chase Freedom Unlimited</h2>
-            <p>$150 BONUSAfter you spend $500 on purchases in your first 3 months from account opening.*</p>
+            <p>$150 bonus after you spend $500 on purchases in your first 3 months from account opening</p>
         </div>
         <div class="box">
-            <img src="{{logo2}}">
-            <h3>Bank of America® Cash Rewards credit card</h3>
-            <p>$200 cash rewards bonus after making at least $1,000 in purchases
-                in the first 90 days of your account opening — plus now choose how you earn rewards.</p>
+            <a href="https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/">
+                <img src="{{logo2}}">
+            </a>
+            <h2>Bank of America Cash Rewards </h2>
+            <p>$200 cash rewards bonus after making at least $1,000 in purchases in the first 90 days from account
+                opening</p>
         </div>
         <div class="box">
-            <img src="{{logo3}}">
-            <h4>Citi Double Cash Card</h4>
-            <p>EARN 2% CASH BACK ON PURCHASES:
-                1% WHEN YOU BUY AND 1% AS YOU PAY
-                No categories, caps or annual fee.</p>
+            <a
+                href="https://citicards.citi.com/usc/LPACA/Citi/Cards/DoubleCash/ps_A/index.html?cmp=KNC~01~110901~CRDACQXX~Google&gclid=Cj0KCQiAz53vBRCpARIsAPPsz8U4G7x7LC5V-24vfcEWe_Y4xePZlgWuytazHCqe8tJmvMm1HnHT8eYaAnFAEALw_wcB&gclsrc=aw.ds&BT_TX=1&ProspectID=F72D203FB454472781A04E01B8BCC6DC">
+                <img src="{{logo3}}">
+            </a>
+            <h2>Citi Double Cash Card</h2>
+            <p> Earn 2% cash back on purchases 1% when you buy and 1% as you pay. No categories, caps or annual fee
+            </p>
         </div>
     </div>
 </section>

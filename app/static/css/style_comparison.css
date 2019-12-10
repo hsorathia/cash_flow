@@ -1,0 +1,23 @@
+h1{
+    text-align:center;
+    font-weight: bold;
+
+}
+
+ul p{
+    text-align: center;
+    font: 40px;
+
+}
+
+ul {
+    background: #e8491d;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+ul li{
+background: #cce5ff;
+  margin: 10px;
+}

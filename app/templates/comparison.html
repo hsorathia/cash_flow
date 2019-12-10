@@ -22,9 +22,10 @@
 
 
 {% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_comparison.css') }}">
 <h1>Which Cards are better:</h1>
 {% for key,value in finalCards.items() %}
-<ul>
+<ul class ="list">
     <p><b>{{key}}</b></p>
     {% for nestKey, nestValue in value.items() %}
     <li>{{nestValue}}</li>
