@@ -1,9 +1,59 @@
-{% extends "base.html" %} {% block title %}
+{% extends "base.html" %}
+
+{% block title %}
+<meta charset="utf-8">
 <title>Your Credit Card</title>
-{% endblock %} {% block body %} {% if valid %}
-<h1>Here's your ideal credit card!</h1>
+<meta name="viewport" content="width = device width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block header %}
+{% if current_user.is_anonymous %}
+<a href="{{ url_for('home') }}">Home | </a>
+<a href="{{ url_for('login') }}">Login | </a>
+<a href="{{ url_for('register') }}">Register</a>
 {% else %}
-<h2>
-  If you want to see your ideal credit card, please enter your information here!
-</h2>
-{% endif %}{% endblock %}
+<a href="{{ url_for('home') }}">Home | </a>
+<a href="{{ url_for('input_page') }}">Input Page | </a>
+<a href="{{ url_for('comparison') }}">Comparison Page | </a>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endif %}
+
+{% endblock %}
+
+
+
+{% block body %}
+<h1>Cards:</h1>
+{% for card in usercards %}
+<h2>{{card.cardName}}: </h2>
+<h3>
+    Online Estimate and Percentage back: {{card.onlineEstimate}} | {{card.cbOnlinePercentage}}
+</h3>
+<h3>
+    Travel Estimate and Percentage back: {{card.travelEstimate}} | {{card.cbTravelPercentage}}
+</h3>
+<h3>
+    Auto Estimate and Percentage back: {{card.autoEstimate}} | {{card.cbAutoPercentage}}
+</h3>
+<button class="delete" id={{card.id}} >delete</button>
+{% endfor %}
+
+<script>
+        $(document).ready(function () {
+            $(".delete").click(function (e) {
+                console.log(this.id)
+                // var js_data = JSON.stringify(this.id);
+                $.ajax({
+                    url: '/output/delete/'+this.id,
+                    type: 'post'
+                }).done(function () {
+                    location.reload();
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    location.reload();
+                });
+            })
+        })
+    </script>
+
+{% endblock %}

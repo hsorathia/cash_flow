@@ -1,13 +1,35 @@
-{% extends "base.html" %} {% block title %}
-<title>CashFlow - Login</title>
-{% endblock %} {% block body %}
-<h1>Log in</h1>
-<form>
-  {{ form.hidden_tag() }}
-  <p>{{ form.username.label }} {{ form.username(size=32) }}</p>
-  <p>{{ form.password.label }} {{ form.password(size = 32) }}</p>
-  <p>{{ form.rememberMe() }} {{ form.rememberMe.label }}</p>
-  <p>{{ form.submit() }}</p>
-</form>
-<h2>Don't have an account? Sign up here!</h2>
+{% extends "base.html" %}
+
+
+{% block title %}
+<title>CashFlow | Login</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_login.css') }}">
+{% endblock %}
+
+{% block header %}
+<nav>
+  <a href="{{ url_for('home') }}">Home</a> |
+  <a href="{{ url_for('register') }}">Register</a>
+</nav>
+{% endblock %}
+
+
+{% block body %}
+<div class="login">
+  <h1>Cash Flow Login</h1>
+  <form method="post" action="">
+    {{ form.hidden_tag() }}
+    <p>{{ form.username.label }} {{ form.username(size=32) }}</p>
+    <p>{{ form.password.label }} {{ form.password(size = 32) }}</p>
+    <p class="remember_me">{{ form.rememberMe() }} {{ form.rememberMe.label }}</p>
+    <p class="submit">{{ form.submit() }}</p>
+  </form>
+</div>
+<div class="login-help">
+  <p>Don't have an account? <a href="{{ url_for('register') }}">Click here to Register</a></p>
+</div>
+
+
 {% endblock %}

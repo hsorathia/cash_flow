@@ -21,7 +21,11 @@
   .container {
     position: relative;
     margin: 100px auto; /*Height of the whole login box to center page drop down*/
+<<<<<<< HEAD
     padding: 100px 100px 40px; /* White box length, height (60px)*/
+=======
+    padding: 100px 100px 60px; /* White box length, height (60px)*/
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
     width: 662px; /* White box width (700px)*/
     background: white;
     border-radius: 3px;
@@ -41,8 +45,13 @@
     border-radius: 4px;
   }
   
+<<<<<<< HEAD
   .container h1 {
     margin: -100px -100.01px 75px; /*Dark bule header lengths*/
+=======
+  .container h4 {
+    margin: -100px -85.9px 75px; /*Dark bule header lengths*/
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
     line-height: 90px; /*subject to change*/
     font-size: 25px;
     font-weight: bold;
@@ -68,7 +77,11 @@
     margin-top: 300px;
   }
   
+<<<<<<< HEAD
   .container input[type=text], .container input[type=text] {
+=======
+  .container input[type=text], .container input[type=password] {
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
     width: 520px; /*Enter your CC insert box */
   }
   
@@ -87,7 +100,11 @@
     font-size: 14px;
   }
   
+<<<<<<< HEAD
   input[type=text], input[type=text] {
+=======
+  input[type=text], input[type=password] {
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
     margin: 1px;
     padding: 0 110px;
     width: 100px;
@@ -103,7 +120,11 @@
     box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.12);
   }
   
+<<<<<<< HEAD
   input[type=text]:focus, input[type=text]:focus {
+=======
+  input[type=text]:focus, input[type=password]:focus {
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
     border-color: #7dc9e2;
     outline-color: #dceefc;
     outline-offset: 0;
@@ -130,7 +151,11 @@
     background-image: -moz-linear-gradient(top, #edf5f8, #cde5ef);
     background-image: -o-linear-gradient(top, #edf5f8, #cde5ef);
     background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
+<<<<<<< HEAD
     -webkit-box-shadow: inset 0 1px #000000, 0 1px 2px rgba(0, 0, 0, 0.15);
+=======
+    -webkit-box-shadow: inset 0 1px #e8491d, 0 1px 2px rgba(0, 0, 0, 0.15);
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
     box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
   }
   
@@ -143,9 +168,13 @@
   
   .lt-ie9 input[type=text], .lt-ie9 input[type=password] {
     line-height: 340px;
+<<<<<<< HEAD
   }
 
 
 
 
 
+=======
+  }
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e

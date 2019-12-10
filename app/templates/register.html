@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+<title>CashFlow - Sign Up</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_signup.css') }}">
+{% endblock %}
+
+{% block header %}
+<nav>
+      <a href="{{ url_for('home') }}">Home</a> |
+      <a href="{{ url_for('login') }}">Login</a>
+
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="signup">
+  <h1>Cash Flow Registration</h1>
+  <form method="post" action="">
+  {{form.hidden_tag()}}
+    <p>{{ form.username.label }} {{ form.username(size = 32) }}</p>
+    <p>{{ form.email.label }} {{ form.email(size = 32) }}</p>
+    <p>{{ form.password.label }} {{ form.password(size = 32) }}</p>
+    <p>{{ form.password2.label }} {{ form.password2(size = 32) }}</p>
+    <p class="submit">{{ form.submit() }}</p>
+  </form>
+</div>
+{% endblock %}

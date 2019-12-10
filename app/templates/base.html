@@ -1,16 +1,26 @@
 <html>
-  <div>
-    Cashflow:
-    <a href="{{ url_for('index') }}">Home</a> |
-    <a href="{{ url_for('Login') }}">Login</a> |
-    <a href="{{ url_for('output') }}">The ideal credit card</a>
 
-    <hr />
-  </div>
-  <head>
-    {% block title %}{% endblock %}
-  </head>
-  <body>
-    {% block body %}{% endblock %}
-  </body>
+<header>
+  {% block header %}{% endblock %}
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</header>
+
+<head>
+  {% block title %}{% endblock %}
+</head>
+
+<body>
+  {% block body %}{% endblock %}
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <p>{{ messages }}</p>
+  {% endif %}
+  {% endwith %}
+
+</body>
+
 </html>
