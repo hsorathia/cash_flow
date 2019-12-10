@@ -3,7 +3,11 @@
 <meta charset="utf-8">
 <title>Cash Flow | Data Input</title>
 <meta name="viewport" content="width = device width">
+<<<<<<< HEAD
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_input.css') }}">
+=======
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
 
 <!-- Import your css file here -->
 
@@ -26,6 +30,37 @@
 <div class="container">
     <div class="data row">
         <div id="mainheader">
+<<<<<<< HEAD
+            <h1> Cash Flow | Data Input </h1>
+            <form method="post" action="">
+                {{ form.csrf_token }}
+                {{ form.hidden_tag() }}
+              <br>
+              <label> Enter your Credit Card Brand </label>
+              <p>{{ form.creditCardName.label }} {{ form.creditCardName(size=32) }}</p>
+               
+              <br>
+              <br>
+              <label> Enter your Online Purchase Estimation </label>
+              <p>{{ form.onlineEstimate.label }} {{ form.onlineEstimate(size=32) }}</p>
+              <p>{{ form.cOnlinePercentage.label }} {{ form.cOnlinePercentage(size=32) }}</p>
+             
+              <br>
+              <br>
+              
+              <label> Enter your Travel Estimation </label>
+              <p>{{ form.travelEstimate.label }} {{ form.travelEstimate(size=32) }}</p>
+              <p>{{ form.cTravelPercentage.label }} {{ form.cTravelPercentage(size=32) }}</p>
+              <br>
+              <br>
+              
+              <label> Enter your Auto Estimation </label> 
+              <p>{{ form.autoEstimate.label }} {{ form.autoEstimate(size=32) }}</p>
+              <p>{{ form.cAutoPercentage.label }} {{ form.cAutoPercentage(size=32) }}</p>
+              <br>
+              <br>
+              
+=======
             <h4> Cash Flow | Data Input </h4>
             <form method="post" action="">
                 {{ form.csrf_token }}
@@ -71,6 +106,7 @@
                                         <p>{{ form.cAutoPercentage.label }} {{ form.cAutoPercentage(size=32) }}</p>
                                 </div>
                 </div>
+>>>>>>> 0393429cf5fa844dcc6b12d9331425a32406781e
                 <br>
                 <p>{{ form.submit() }}</p>
             </form>
